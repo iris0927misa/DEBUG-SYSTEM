@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>DEBUG: SYSTEM RESTORE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <header class="hud" aria-live="polite">
+
+        <div class="hud-item hud-score">
+            SCORE: <span id="score">0000</span>
+        </div>
+
+        <div class="hud-item hud-data">
+            DATA: <span id="data-count">0000</span>
+        </div>
+
+        <div
+            class="hud-item hud-hp"
+            id="hp"
+            aria-label="HP"
+        >
+            ❤️❤️❤️
+        </div>
+
+    </header>
+
+
+    <main id="playfield">
+
+        <canvas
+            id="game"
+            aria-label="DEBUG SYSTEM RESTORE game area"
+        ></canvas>
+
+
+        <!-- 技能按鈕 -->
+        <div id="skill-hud" aria-label="Skills">
+
+            <button
+                class="skill-button"
+                id="skill-s1"
+                type="button"
+            >
+                <span class="skill-name">S1</span>
+                <span class="skill-key">E</span>
+                <span class="skill-status">READY</span>
+            </button>
+
+
+            <button
+                class="skill-button"
+                id="skill-s2"
+                type="button"
+            >
+                <span class="skill-name">S2</span>
+                <span class="skill-key">Q</span>
+                <span class="skill-status">READY</span>
+            </button>
+
+
+            <button
+                class="skill-button"
+                id="skill-s3"
+                type="button"
+            >
+                <span class="skill-name">S3</span>
+                <span class="skill-key">W</span>
+                <span class="skill-status">LOCKED</span>
+            </button>
+
+        </div>
+
+
+        <div id="start-screen" class="overlay start-screen" role="dialog" aria-modal="true">
+            <div class="start-panel">
+                <p class="start-kicker">DEBUG SYSTEM // 08</p>
+                <h1>DEBUG:<br>SYSTEM RESTORE</h1>
+                <p class="start-subtitle">RESTORE THE CORRUPTED SYSTEM</p>
+                <button id="start-btn" type="button" class="start-btn">TAP TO START</button>
+                <div class="start-controls">
+                    <span>SPACE / TAP</span><span>SWITCH LANE</span>
+                </div>
+                <div class="start-skills"><span>E</span> S1&nbsp;&nbsp; <span>Q</span> S2&nbsp;&nbsp; <span>W</span> S3</div>
+            </div>
+        </div>
+
+        <div id="boss-hud" class="boss-hud hidden" aria-live="polite">
+            <div class="boss-title">SYSTEM CORRUPTION // BOSS</div>
+            <div class="boss-bar"><div id="boss-hp-fill" class="boss-hp-fill"></div></div>
+            <div id="boss-hp-text" class="boss-hp-text">BOSS 24 / 24</div>
+        </div>
+
+        <div id="boss-warning" class="boss-warning hidden">
+            <div class="boss-warning-kicker">WARNING</div>
+            <div class="boss-warning-title">BOSS DETECTED</div>
+            <div class="boss-warning-sub">INCOMING FIRE // SYSTEM OVERRIDE</div>
+        </div>
+
+        <div id="victory" class="overlay hidden" role="dialog" aria-modal="true">
+            <div class="overlay-panel victory-panel">
+                <p class="overlay-kicker">SYSTEM RESTORED</p>
+                <h1>MISSION COMPLETE</h1>
+                <p class="overlay-stat">SCORE <span id="victory-score">0000</span></p>
+                <p class="overlay-stat">DATA <span id="victory-data">0000</span></p>
+                <p class="overlay-hint">THE CORRUPTION HAS BEEN CLEARED</p>
+                <button id="victory-restart-btn" type="button">PLAY AGAIN</button>
+                <p class="overlay-hint">TAP / SPACE TO REBOOT</p>
+            </div>
+        </div>
+
+        <!-- Game Over -->
+        <div
+            id="game-over"
+            class="overlay hidden"
+            role="dialog"
+            aria-modal="true"
+        >
+
+            <div class="overlay-panel">
+
+                <p class="overlay-kicker">
+                    CORRUPTION CRITICAL
+                </p>
+
+                <h1>SYSTEM FAILURE</h1>
+
+                <p class="overlay-stat">
+                    SCORE
+                    <span id="final-score">0000</span>
+                </p>
+
+                <p class="overlay-stat">
+                    DATA
+                    <span id="final-data">0000</span>
+                </p>
+
+                <button
+                    id="restart-btn"
+                    type="button"
+                >
+                    RESTART
+                </button>
+
+                <p class="overlay-hint">
+                    TAP / SPACE TO REBOOT
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="js/audio.js"></script>
+<script src="js/config.js"></script>
+<script src="js/difficulty.js"></script>
+<script src="js/state.js"></script>
+<script src="js/player.js"></script>
+<script src="js/obstacles.js"></script>
+<script src="js/collectibles.js"></script>
+<script src="js/patterns.js"></script>
+<script src="js/collision.js"></script>
+<script src="js/boss.js"></script>
+<script src="js/render.js"></script>
+<script src="js/input.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
